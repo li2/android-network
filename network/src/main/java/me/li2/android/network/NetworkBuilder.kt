@@ -6,7 +6,6 @@ package me.li2.android.network
 
 import android.content.Context
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.readystatesoftware.chuck.ChuckInterceptor
 import com.serjltt.moshi.adapters.Wrapped
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -33,8 +32,7 @@ object NetworkBuilder {
         val okHttpClient = OkHttpClient.Builder()
                     .addInterceptor(requestInterceptor)
                     .addInterceptor(responseInterceptor)
-                    .addInterceptor(ChuckInterceptor(context))
-                    .addNetworkInterceptor()
+                    .addNetworkInterceptor(context)
                     .readTimeout(timeout, TimeUnit.SECONDS)
                     .connectTimeout(timeout, TimeUnit.SECONDS)
                     .writeTimeout(timeout, TimeUnit.SECONDS)

@@ -1,5 +1,6 @@
 package me.li2.android.network
 
+import android.content.Context
 import okhttp3.OkHttpClient
 
 fun Context.configNetworkBuild() {
@@ -7,4 +8,4 @@ fun Context.configNetworkBuild() {
 }
 
 // Do nothing
-fun OkHttpClient.Builder.addNetworkInterceptor(): OkHttpClient.Builder = this
+fun OkHttpClient.Builder.addNetworkInterceptor(context: Context): OkHttpClient.Builder = this

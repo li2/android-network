@@ -18,12 +18,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable = true
+        }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -40,35 +43,32 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
     implementation "androidx.appcompat:appcompat:$rootProject.vAndroidxAppcompat"
     implementation "androidx.core:core-ktx:$rootProject.vAndroidxCoreKtx"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.vAndroidxLifecycle"
 
     testImplementation "junit:junit:$rootProject.vJunit"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.vAndroidxTestJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.vAndroidxTestEspresso"
 
-    //Support
-    implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.vAndroidxLifecycle"
-
     //Type-safe HTTP client
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
-    implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
-
-    //Kotlin Serialization
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinx_serialization_version"
-    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofit_kotlinx_serialization_converter"
+    api "com.squareup.retrofit2:retrofit:$rootProject.vRetrofit"
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.vRetrofit"
+    api "com.squareup.retrofit2:converter-moshi:$rootProject.vRetrofit"
+    api "com.squareup.okhttp3:okhttp:$rootProject.vOkhttp3"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.vOkhttp3"
 
     //Moshi
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
-    api "com.squareup.moshi:moshi-kotlin:$moshi_version"
-    api "com.squareup.retrofit2:converter-moshi:$retrofit_version"
-    implementation "com.serjltt.moshi:moshi-lazy-adapters:$moshi_lazy_adapters"
-    
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$rootProject.vMoshi"
+    api "com.squareup.moshi:moshi-kotlin:$rootProject.vMoshi"
+    api "com.serjltt.moshi:moshi-lazy-adapters:$rootProject.vMoshiLazyAdapters"
+
+    //Kotlin Serialization
+    api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$rootProject.vKotlinxSerialization"
+    api "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$rootProject.vRetrofitKotlinxSerializationConverter"
+
     //MARK: The following are Debug libs --------------------------------------------------------------------
     //Chuck
-    debugImplementation "com.readystatesoftware.chuck:library:$chuck_version"
-    releaseImplementation "com.readystatesoftware.chuck:library-no-op:$chuck_version"
+    api "com.readystatesoftware.chuck:library:$rootProject.vChuck"
     //Stetho
-    debugImplementation "com.facebook.stetho:stetho:$stetho_version"
-    debugImplementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+    api "com.facebook.stetho:stetho:$rootProject.vStetho"
+    api "com.facebook.stetho:stetho-okhttp3:$rootProject.vStetho"
 }
