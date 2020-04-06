@@ -2,7 +2,7 @@ package me.li2.android.network
 
 import okhttp3.OkHttpClient
 
-fun configNetworkBuild() {
+fun Context.configNetworkBuild() {
     // do nothing
 }
 

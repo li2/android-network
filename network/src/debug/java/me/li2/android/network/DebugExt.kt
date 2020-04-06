@@ -8,9 +8,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
 
-fun configNetworkBuild(context: Context) {
+fun Context.configNetworkBuild() {
     if ("robolectric" != Build.FINGERPRINT) {
-        Stetho.initializeWithDefaults(context)
+        Stetho.initializeWithDefaults(this)
     }
 }
 
