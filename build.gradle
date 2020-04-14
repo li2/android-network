@@ -47,6 +47,7 @@ allprojects {
         vMoshiLazyAdapters = "2.2"
         vKotlinxSerialization = "0.11.1"
         vRetrofitKotlinxSerializationConverter = "0.4.0"
+        //Debug bridge to access chrome://inspect to inspect HTTP
         vStetho = "1.5.1"
         //In-app HTTP inspector
         vChuck = "1.1.0"
