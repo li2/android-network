@@ -2,14 +2,17 @@
  * Created by Weiyi Li on 2019-11-02.
  * https://github.com/li2
  */
+@file:Suppress("unused")
 package me.li2.android.network
 
 import android.content.Context
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.serjltt.moshi.adapters.Wrapped
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.serialization.json.Json
+import me.li2.android.network.interceptor.DefaultRequestInterceptor
 import me.li2.android.network.interceptor.RequestInterceptor
 import me.li2.android.network.interceptor.ResponseInterceptor
 import okhttp3.MediaType.Companion.toMediaType
@@ -25,8 +28,8 @@ object NetworkBuilder {
     inline fun <reified T> buildRetrofitAdapter(
             context: Context,
             baseUrl: String,
-            requestInterceptor: RequestInterceptor,
             responseInterceptor: ResponseInterceptor,
+            requestInterceptor: RequestInterceptor = DefaultRequestInterceptor(),
             converterFactory: Converter.Factory = moshiConverterFactory,
             timeout: Long = TIMEOUT): T {
         val okHttpClient = OkHttpClient.Builder()
@@ -41,6 +44,7 @@ object NetworkBuilder {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(converterFactory)
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .build()
