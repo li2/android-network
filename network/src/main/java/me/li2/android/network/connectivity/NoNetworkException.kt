@@ -4,6 +4,6 @@
  */
 package me.li2.android.network.connectivity
 
-import kotlinx.io.IOException
+import java.io.IOException
 
 object NoNetworkException: IOException("No network available, please check your WIFI or Cellular connection")

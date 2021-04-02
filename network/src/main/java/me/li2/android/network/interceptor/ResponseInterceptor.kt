@@ -4,11 +4,11 @@
  */
 package me.li2.android.network.interceptor
 
-import kotlinx.io.IOException
 import me.li2.android.network.connectivity.NetworkConnectivityListener
 import me.li2.android.network.connectivity.NoNetworkException
 import okhttp3.Interceptor
 import okhttp3.Response
+import java.io.IOException
 import java.net.HttpURLConnection.HTTP_OK
 
 abstract class ResponseInterceptor(private val nc: NetworkConnectivityListener) : Interceptor {

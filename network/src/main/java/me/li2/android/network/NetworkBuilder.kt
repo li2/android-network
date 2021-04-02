@@ -8,15 +8,11 @@ package me.li2.android.network
 
 import android.content.Context
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.readystatesoftware.chuck.ChuckInterceptor
 import com.serjltt.moshi.adapters.Wrapped
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
@@ -54,7 +50,6 @@ object NetworkBuilder {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(converterFactory)
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .build()
@@ -71,8 +66,11 @@ object NetworkBuilder {
      * Return a [Converter.Factory] which uses Kotlin serialization.
      * Json.nonstrict to fix JsonUnknownKeyException: Strict JSON encountered unknown key: display_name
      */
+/*
+    //Unresolved reference: nonstrict
     val ktSerializationConverterFactory
         get() = Json.nonstrict.asConverterFactory("application/json".toMediaType())
+*/
 
     const val TIMEOUT = 3000L
 }

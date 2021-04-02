@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlinx-serialization'
 
@@ -43,7 +42,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$vKotlin"
     implementation "androidx.appcompat:appcompat:$rootProject.vAndroidxAppcompat"
     implementation "androidx.core:core-ktx:$rootProject.vAndroidxCoreKtx"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.vAndroidxLifecycle"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$rootProject.vAndroidxLifecycle"
 
     testImplementation "junit:junit:$rootProject.vJunit"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.vAndroidxTestJunit"
@@ -62,9 +61,8 @@ dependencies {
     api "com.serjltt.moshi:moshi-lazy-adapters:$rootProject.vMoshiLazyAdapters"
 
     //Kotlin Serialization
-    api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$rootProject.vKotlinxSerialization"
+    api "org.jetbrains.kotlinx:kotlinx-serialization-json:$rootProject.vKotlinxSerialization"
     api "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$rootProject.vRetrofitKotlinxSerializationConverter"
-    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.vRetrofitKotlinxCoroutinesAdapter"
 
     //MARK: The following are Debug libs --------------------------------------------------------------------
     //Chuck
