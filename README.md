@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/li2/android-network.svg)](https://jitpack.io/#li2/android-network)
+
 
 ## Usage
 
