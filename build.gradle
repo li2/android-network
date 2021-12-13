@@ -2,10 +2,9 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.4.32'
+        kotlin_version = '1.5.21'
+        gradle_version = '7.0.3'
     }
-    ext.kotlin_version = '1.4.32'
-    ext.gradle_version = '4.2.0-beta06'
     repositories {
         google()
         jcenter()
@@ -30,9 +29,9 @@ allprojects {
     }
     ext {
         // Build
-        androidCompileSdk_version = 29
+        androidCompileSdk_version = 30
         androidMinSdk_version = 19
-        androidTargetSdk_version = 29
+        androidTargetSdk_version = 30
 
         // Android X Dependencies
         androidx_appcompat_version = '1.2.0'
@@ -42,7 +41,7 @@ allprojects {
         // Network
         retrofit_version = "2.9.0"
         okhttp3_version = "4.4.0"
-        moshi_version = "1.9.2"
+        moshi_version = "1.12.0"
         moshiLazyAdapters_version = "2.2"
         kotlin_versionxSerialization = "1.1.0"
         retrofit_versionKotlinxSerializationConverter = "0.8.0"

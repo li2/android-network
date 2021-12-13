@@ -57,7 +57,7 @@ dependencies {
 
     //Moshi
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
-    api "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    api "com.squareup.moshi:moshi-kotlin:$moshi_kotlin_version"
     api "com.serjltt.moshi:moshi-lazy-adapters:$moshiLazyAdapters_version"
 
     //Kotlin Serialization
