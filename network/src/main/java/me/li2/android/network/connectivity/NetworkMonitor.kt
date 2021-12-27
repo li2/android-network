@@ -9,7 +9,14 @@ import androidx.core.content.getSystemService
 
 class NetworkMonitor(private val context: Context) : NetworkConnectivityListener {
 
-    // https://stackoverflow.com/a/53078141/2722270
+    /**
+     * Get current network status.
+     * activeNetworkInfo.getType() is deprecated in API level 28,
+     * callers should switch to checking NetworkCapabilities#hasTransport
+     * Refer:
+     * https://developer.android.com/reference/android/net/NetworkInfo#getType()
+     * https://stackoverflow.com/a/53078141/2722270
+     */
     @Suppress("DEPRECATION")
     @SuppressLint("MissingPermission")
     override fun isConnected(): Boolean {
